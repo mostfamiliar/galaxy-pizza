@@ -1,4 +1,4 @@
-function Pizza (size, toppingChoice, cost) {
+function Pizza (size, toppingChoice, cost, toppingList) {
   this.size = size;
   this.toppings = ["Vegan Cheese", "Carmelized Onions", "Peppers", "Pineapple", "Jalapeno", "Tempeh", "Olives", "Mushrooms", "Onions"];
   // this.sauces = sauces;
@@ -6,7 +6,7 @@ function Pizza (size, toppingChoice, cost) {
   // this.cheese = cheese;
   this.toppingChoice = toppingChoice;
   this.cost = 0;
-  this.order = [];
+  this.toppingList = toppingList;
 }
 
 Pizza.prototype.pizzaSizer = function() {
@@ -25,22 +25,18 @@ Pizza.prototype.pizzaSizer = function() {
 }
 
 Pizza.prototype.toppingSelector = function() {
-  // for (var i =0; i < this.orderLength; i++) {
-  //   newOrder[i] ==
   var cost = 0;
-    this.toppingChoice = this.toppingChoice.split(" ");
-    var toppingLength = this.toppingChoice.length;
-    this.toppingChoice.forEach(function(blank) {
-          cost = cost + 2;
-    });
-    return cost;
+  this.toppingChoice = this.toppingChoice.split(" ");
+  var toppingLength = this.toppingChoice.length;
+  this.toppingChoice.forEach(function(blank) {
+        cost = cost + 2;
+  });
+  return cost;
 }
 
 Pizza.prototype.finalOrder = function() {
   var sizeCost = this.pizzaSizer();
-  console.log(sizeCost);
   var toppingCost = this.toppingSelector();
-  console.log(toppingCost);
   var finalCost = sizeCost + toppingCost;
   return finalCost;
 }
@@ -59,5 +55,9 @@ Pizza.prototype.finalOrder = function() {
 
 $(document).ready(function() {
   var newPizza = new Pizza();
-  $(".ingredient-list").text(newPizza);
+  var newToppingList = newPizza.toppings;
+  console.log(newToppingList);
+  for (var i = 0; i < newToppingList.length; i++) {
+        $(".ingredient-list").empty().append("<li>" + newToppingList.join("</li><li>"));
+      }
 });
