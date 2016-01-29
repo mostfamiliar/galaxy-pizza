@@ -57,7 +57,13 @@ $(document).ready(function() {
   var newPizza = new Pizza();
   var newToppingList = newPizza.toppings;
   console.log(newToppingList);
+
   for (var i = 0; i < newToppingList.length; i++) {
-        $(".ingredient-list").empty().append("<li>" + newToppingList.join("</li><li>"));
+    var test = newToppingList[i];
+    var $test = $("<li>").text(test).hide().delay(100*i).fadeIn(300);
+    console.log(test);
+    $(".ingredient-list").append("<label class='checkbox-inline'><input type='checkbox' id='$'>" + test + "</label>");
+        // $(".ingredient-list").empty().append("<label class='checkbox-inline'><input type='checkbox' id='[i]'>" + "<li>" + newToppingList.join("</li><li>") + "</label>");
+        // $(".test").append(".checkbox-inline");
       }
 });
