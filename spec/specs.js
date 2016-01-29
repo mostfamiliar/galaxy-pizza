@@ -17,7 +17,7 @@ describe('Pizza', function() {
   });
   it ("will allow a user to choose the size of the pizza", function() {
     var testPizza = new Pizza("Large");
-    expect(testPizza.pizzaSizer()).to.equal("Large");
+    expect(testPizza.pizzaSizer()).to.equal(16);
   });
   it("will return a pizza based on size and topping selections", function() {
     var testPizza = new Pizza("Small", "Tempeh", "Tomato Sauce", "Daiya");
