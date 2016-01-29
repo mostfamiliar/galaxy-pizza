@@ -1,69 +1,21 @@
 .jumbotron {
-  background-color: #ffdb4d;
-  color: #208CAC;
+  background-color: #456F74;
+  color: #FFF;
   padding: 20px;
+    background-image: url("../img/pizzaSlice.png");
 }
 
-.jumbotron .glyphicon {
-  font-size: 96px;
-  color: #fff;
-  margin-top: 5px;
-}
-
-.jumbotron .glyphicon:hover {
-  color: #000;
+span .pizza-icon {
+  background-image: url("../img/pizzaSlice.png");
 }
 
 .jumbotron h1 {
-    font-size: 128px;
+    font-size: 95px;
+    font-style: italic;
 }
-
-.rules {
-  margin: 80px;
-  color: #ffdb4d;
-  font-size: 14px;
-}
-
 .rules p {
   font-family: monospace;
   color: #fff;
-}
-
-.manWhoHangs {
-  margin: 80px;
-  box-shadow: 10px 10px #000;
-  background-color: #fff9cc;
-  padding: 30px;
-  text-align: center;
-  font-size: 64px;
-  font-weight: bold;
-  margin-bottom: 140px;
-}
-
-.game {
-  background-color: #fff9cc;
-  padding: 50px;
-  margin: 80px;
-  box-shadow: 10px 10px #000;
-  text-align: center;
-  font-family: monospace;
-  margin-top: 372px;
-}
-
-/*#letterSubmission {
-  margin: 80px;
-  margin-top: 10px;
-}*/
-
-.letterKeyboard {
-  background-color: #fff9cc;
-  padding: 40px;
-  margin: 80px;
-  margin-top: 0px;
-  box-shadow: 10px 10px #000;
-  text-align: center;
-  font-family: monospace;
-  position: absolute;
 }
 
 .btn {
@@ -71,5 +23,21 @@
 }
 
 body {
-  background-color: #208CAC;
+  background-color: #EB5937;
+  background: url(../img/galaxy.jpg);
+  opacity: 0.6;
+  color: #FFF;
+}
+
+.ingredient-box {
+  background-color: #D3CBBD;
+  height: 200px;
+}
+
+.pizza-cat {
+  display: none;
+}
+
+h3 {
+  font-style: italic;
 }

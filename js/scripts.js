@@ -55,3 +55,9 @@ Pizza.prototype.finalOrder = function() {
 // var toppingsArr = (this.toppings).split(" ");
 // console.log(splitToppings);
 // newOrder.push(this.sauces + " " + toppingsArr + " " + this.cheese);
+
+
+$(document).ready(function() {
+  var newPizza = new Pizza();
+  $(".ingredient-list").text(newPizza);
+});
