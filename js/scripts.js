@@ -33,28 +33,25 @@ Pizza.prototype.toppingSelector = function() {
     this.toppingChoice.forEach(function(blank) {
           cost = cost + 2;
     });
-
-    //   for (var i = 0; i < toppingLength; i++) {
-    //   if (this.toppingChoice === this.toppings[i]) {
-    //     this.cost = this.cost + 2;
-    //   }
-    // }
-
-    // console.log(this.toppings);
-    // var toppingsArr = (this.toppings).split(" ");
-    // console.log(splitToppings);
-    // newOrder.push(this.sauces + " " + toppingsArr + " " + this.cheese);
-
     return cost;
 }
 
 Pizza.prototype.finalOrder = function() {
-  var order = this.toppingSelector() + this.pizzaSizer();
-  console.log(this.toppingSelector);
-    console.log(this.pizzaSizer);
-  console.log(order);
+  var sizeCost = this.pizzaSizer();
+  console.log(sizeCost);
+  var toppingCost = this.toppingSelector();
+  console.log(toppingCost);
+  var finalCost = sizeCost + toppingCost;
+  return finalCost;
 }
 
-Pizza.prototype.costCalc = function() {
+//   for (var i = 0; i < toppingLength; i++) {
+//   if (this.toppingChoice === this.toppings[i]) {
+//     this.cost = this.cost + 2;
+//   }
+// }
 
-}
+// console.log(this.toppings);
+// var toppingsArr = (this.toppings).split(" ");
+// console.log(splitToppings);
+// newOrder.push(this.sauces + " " + toppingsArr + " " + this.cheese);

@@ -25,11 +25,11 @@ describe('Pizza', function() {
     expect(testPizza.toppingSelector()).to.equal(6);
   });
   it("will return a pizza based on size and topping selections", function() {
-    var testPizza = new Pizza("Small", "Tomato", "Pepper", "Daiya");
+    var testPizza = new Pizza("Small", "Tomato Pepper Daiya");
     expect(testPizza.finalOrder()).to.equal(16);
   });
-  // it("will calculate the cost of the pizza based on size and toppings", function() {
-  //   var testPizza = new Pizza("Small", "Tempeh", "Tomato Sauce", "Daiya");
-  //   expect(testPizza.costCalc()).to.equal(14);
-  // });
+  it("will calculate the cost of the pizza based on size and toppings", function() {
+    var testPizza = new Pizza("Galaxy-sized", "Tempeh, Onion, Olive, Potato");
+    expect(testPizza.finalOrder()).to.equal(28);
+  });
 });
