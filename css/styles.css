@@ -1,9 +1,15 @@
+body {
+  background-color: #EB5937;
+  background: url(../img/galaxy.jpg);
+  color: #FFF;
+}
+
 .jumbotron {
   background-color: #456F74;
   color: #FFF;
   padding: 20px;
-    background-image: url("../img/pizzaSlice.png");
-    opacity: 0.6;
+  background-image: url("../img/pizzaSlice.png");
+  background: none;
 }
 
 span .pizza-icon {
@@ -13,6 +19,7 @@ span .pizza-icon {
 .jumbotron h1 {
     font-size: 95px;
     font-style: italic;
+    color: #FFF;
 }
 .rules p {
   font-family: monospace;
@@ -23,15 +30,16 @@ span .pizza-icon {
   margin-top: 10px;
 }
 
-body {
-  background-color: #EB5937;
-  background: url(../img/galaxy.jpg);
-  color: #FFF;
+.hidden-receipt {
+  display: none;
 }
 
 .ingredient-box {
   background-color: #D3CBBD;
+  color: #000;
+  font-size: 16px;
   height: 200px;
+  opacity: 0.6;
 }
 
 .pizza-cat {

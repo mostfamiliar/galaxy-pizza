@@ -15,18 +15,50 @@
       <div class="container">
          <div class="row">
            <div class="col-md-6">
-             <h3>PIZZA INGREDIENTS</h3>
+             <h3>PIZZA SIZE</h3>
              <div class="ingredient-box">
-               <ul class="ingredient-list">
+              <form id="pizza-size">
+               <ul class="size-list">
+                 <li><label class='checkbox-inline'><input type='checkbox' id='small'>Small</label></li>
+                 <li><label class='checkbox-inline'><input type='checkbox' id='medium'>Medium</label></li>
+                 <li><label class='checkbox-inline'><input type='checkbox' id='large'>Large</label></li>
+                 <li><label class='checkbox-inline'><input type='checkbox' id='galaxy'>Galaxy-sized</label></li>
                </ul>
-             </div>
-
+            </div>
+               <h3>PIZZA INGREDIENTS</h3>
+               <div class="ingredient-box">
+                 <ul class="ingredient-list">
+                   <ul class="toppings-list">
+                     <li><label class='checkbox-inline'><input type='checkbox' id='carmelized'>Carmelized Onions</label></li>
+                     <li><label class='checkbox-inline'><input type='checkbox' id='peppers'>Peppers</label></li>
+                     <li><label class='checkbox-inline'><input type='checkbox' id='pineapple'>Pineapple</label></li>
+                     <li><label class='checkbox-inline'><input type='checkbox' id='jalapeno'>Jalapeño</label></li>
+                    <li><label class='checkbox-inline'><input type='checkbox' id='tempeh'>Tempeh</label></li>
+                     <li><label class='checkbox-inline'><input type='checkbox' id='olives'>Olives</label></li>
+                    <li><label class='checkbox-inline'><input type='checkbox' id='mushroom'>Mushrooms</label></li>
+                    <li><label class='checkbox-inline'><input type='checkbox' id='onion'>Onion</label></li>
+                   </ul>
+                 </ul>
+               </div>
+               <button type="submit" class="btn btn-info">Submit Order</button>
+              </form>
           </div>
           <div class="col-md-6">
             <div class="pizza-cat">
-              <img src="./img/pizzacat.gif"/>
+                <img src="./img/pizzacat.gif"/>
             </div>
-         </div>
+
+            <div class="hidden-receipt">
+              <h3>YOUR ORDER</h3>
+              <div class="ingredient-box">
+                <div class="pizza-output">
+                  <p>Your ordered a <span class="size-output"></span>pizza!</p>
+                  <p>With the following toppings<span class="toppings-output"></span></p>
+                  <p>Your total cost is <span class="cost-output"></span></p>
+                </div>
+              </div>
+            </div>
+          </div>
          </div>
       </div>
       </div>

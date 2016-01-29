@@ -10,16 +10,17 @@ function Pizza (size, toppingChoice, cost, toppingList) {
 }
 
 Pizza.prototype.pizzaSizer = function() {
-  if (this.size === "Small") {
+  console.log(this.size);
+  if (this.size === "small") {
     return this.cost = 10;
   }
-  else if (this.size === "Medium") {
+  else if (this.size === "medium") {
     return this.cost = 14;
   }
-  else if (this.size === "Large") {
+  else if (this.size === "large") {
     return this.cost = 16;
   }
-  else if (this.size === "Galaxy-sized") {
+  else if (this.size === "galaxy-sized") {
     return this.cost = 20;
   }
 }
@@ -56,14 +57,59 @@ Pizza.prototype.finalOrder = function() {
 $(document).ready(function() {
   var newPizza = new Pizza();
   var newToppingList = newPizza.toppings;
-  console.log(newToppingList);
 
-  for (var i = 0; i < newToppingList.length; i++) {
-    var test = newToppingList[i];
-    var $test = $("<li>").text(test).hide().delay(100*i).fadeIn(300);
-    console.log(test);
-    $(".ingredient-list").append("<label class='checkbox-inline'><input type='checkbox' id='$'>" + test + "</label>");
-        // $(".ingredient-list").empty().append("<label class='checkbox-inline'><input type='checkbox' id='[i]'>" + "<li>" + newToppingList.join("</li><li>") + "</label>");
-        // $(".test").append(".checkbox-inline");
+  // for (var i = 0; i < newToppingList.length; i++) {
+  //   var test = newToppingList[i];
+  //   var $test = $("<li>").text(test).hide().delay(100*i).fadeIn(300);
+  //   $(".ingredient-list").append("<label class='checkbox-inline'><input type='checkbox' id='$'>" + test + "</label>");
+  //       // $(".ingredient-list").empty().append("<label class='checkbox-inline'><input type='checkbox' id='[i]'>" + "<li>" + newToppingList.join("</li><li>") + "</label>");
+  //       // $(".test").append(".checkbox-inline");
+  //     };
+
+    //function to disable other checkboxes on size when one is selected!!!!
+
+    $(".btn").click(function() {
+      $(".pizza-cat").show().fadeOut(5000);
+    });
+
+    $("form#pizza-size").submit(function(event) {
+      event.preventDefault();
+      var smallChecked = $("input#small").prop('checked');
+      var mediumChecked = $("input#medium").prop('checked');
+      var largeChecked = $("input#large").prop('checked');
+      var galaxyChecked = $("input#galaxy").prop('checked');
+      var CarmelizedChecked = $("input#carmelized").prop('checked');
+      var peppersChecked = $("input#peppers").prop('checked');
+      var pineappleChecked = $("input#pineapple").prop('checked');
+      var jalapenoChecked = $("input#jalapeno").prop('checked');
+      var tempehChecked = $("input#tempeh").prop('checked');
+      var olivesChecked = $("input#olives").prop('checked');
+      var mushroomsChecked = $("input#mushrooms").prop('checked');
+      var onionsChecked = $("input#onions").prop('checked');
+
+      if (smallChecked === true) {
+        this.size = "small";
+        var receipt = newPizza.pizzaSizer();
+      } else if (mediumChecked === true) {
+        this.size = "medium";
+      } else if (largeChecked === true) {
+        this.size = "large";
+      } else if (galaxyChecked === true) {
+        this.size = "galaxy-sized";
+      } else {
+        console.log("We got problems");
       }
+
+
+      var checkArray  = [];
+      $('.toppings-list input[type=checkbox]').each(function () {
+          this.checked ? checkArray.push("1") : checkArray.push("0");
+      });
+
+      $(".hidden-receipt").show();
+      $(".size-output").append(this.size + " ");
+      $(".toppings-output").append(this.toppingChoice + " ");
+      $(".cost-output").append(this.cost + " ");
+    });
+
 });
