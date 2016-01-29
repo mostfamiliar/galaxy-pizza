@@ -11,20 +11,25 @@
 // });
 
 describe('Pizza', function() {
-  it("will allow a user to choose toppings for the desired pizza", function() {
-    var testPizza = new Pizza("Mushroom");
-    expect(testPizza.toppingSelector()).to.equal("Mushroom");
-  });
-  it ("will allow a user to choose the size of the pizza", function() {
+  it ("will allow a user to choose the size of the pizza and output cost", function() {
     var testPizza = new Pizza("Large");
     expect(testPizza.pizzaSizer()).to.equal(16);
   });
-  it("will return a pizza based on size and topping selections", function() {
-    var testPizza = new Pizza("Small", "Tempeh", "Tomato Sauce", "Daiya");
-    expect(testPizza.finalOrder()).to.equal(["Small", "Tempeh", "Tomato Sauce", "Daiya"]);
+  it("will allow a user to a topping for the desired pizza and output cost", function() {
+    var testPizza = new Pizza("Large", "Mushroom");
+    expect(testPizza.toppingSelector()).to.equal(2);
   });
-  it("will calculate the cost of the pizza based on size and toppings", function() {
-    var testPizza = new Pizza("Small", "Tempeh", "Tomato Sauce", "Daiya");
-    expect(testPizza.costCalc()).to.equal(14);
+  // it ("will separate multiple toppings into an array", functio)
+  it("will allow a user to select multiple toppings and output cost", function() {
+    var testPizza = new Pizza("Large", "Mushroom Pepper Tempeh");
+    expect(testPizza.toppingSelector()).to.equal(6);
   });
+  // it("will return a pizza based on size and topping selections", function() {
+  //   var testPizza = new Pizza("Small", "Tomato Sauce", "Pepper", "Daiya");
+  //   expect(testPizza.finalOrder()).to.equal(16);
+  // });
+  // it("will calculate the cost of the pizza based on size and toppings", function() {
+  //   var testPizza = new Pizza("Small", "Tempeh", "Tomato Sauce", "Daiya");
+  //   expect(testPizza.costCalc()).to.equal(14);
+  // });
 });
