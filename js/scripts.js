@@ -27,32 +27,34 @@ Pizza.prototype.pizzaSizer = function() {
 Pizza.prototype.toppingSelector = function() {
   // for (var i =0; i < this.orderLength; i++) {
   //   newOrder[i] ==
-    console.log(this.toppingChoice);
+  var cost = 0;
     this.toppingChoice = this.toppingChoice.split(" ");
-    console.log(this.toppingChoice);
     var toppingLength = this.toppingChoice.length;
-    console.log(toppingLength);
+    this.toppingChoice.forEach(function(blank) {
+          cost = cost + 2;
+    });
+
+    //   for (var i = 0; i < toppingLength; i++) {
+    //   if (this.toppingChoice === this.toppings[i]) {
+    //     this.cost = this.cost + 2;
+    //   }
+    // }
+
     // console.log(this.toppings);
     // var toppingsArr = (this.toppings).split(" ");
     // console.log(splitToppings);
     // newOrder.push(this.sauces + " " + toppingsArr + " " + this.cheese);
 
-    for (var i = 0; i < toppingLength; i++) {
-    if (toppingArr === this.toppings[i]) {
-      this.cost = this.cost + 2;
-    }
-  }
-    // console.log(newOrder);
-    // newOrder.forEach(function(blank) {
-    //       costTest = costTest + 2;
-    // });
-    return this.cost;
+    return cost;
+}
+
+Pizza.prototype.finalOrder = function() {
+  var order = this.toppingSelector() + this.pizzaSizer();
+  console.log(this.toppingSelector);
+    console.log(this.pizzaSizer);
+  console.log(order);
 }
 
 Pizza.prototype.costCalc = function() {
 
-}
-
-Pizza.prototype.finalOrder = function() {
-  var order = this.toppingSelector() + this.pizzaSizer() + this.costCalc();
 }
