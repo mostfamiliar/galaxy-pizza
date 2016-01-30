@@ -1,16 +1,16 @@
-function Pizza (size, toppingChoice, cost, toppingList) {
+function Pizza (size, toppingChoice, cost, toppingCost, finalCost) {
   this.size = size;
   this.toppings = ["Vegan Cheese", "Carmelized Onions", "Peppers", "Pineapple", "Jalapeno", "Tempeh", "Olives", "Mushrooms", "Onions"];
   // this.sauces = sauces;
   // this.toppings = toppings;
   // this.cheese = cheese;
   this.toppingChoice = toppingChoice;
-  this.cost = 0;
-  this.toppingList = toppingList;
+  this.cost = cost;
+  this.toppingCost = toppingCost;
+  this.finalCost = finalCost;
 }
 
 Pizza.prototype.pizzaSizer = function() {
-  console.log(this.size);
   if (this.size === "small") {
     return this.cost = 10;
   }
@@ -32,14 +32,16 @@ Pizza.prototype.toppingSelector = function() {
   this.toppingChoice.forEach(function(blank) {
         cost = cost + 2;
   });
-  return cost;
+  this.toppingCost = cost;
+  return this.toppingCost;
 }
 
 Pizza.prototype.finalOrder = function() {
   var sizeCost = this.pizzaSizer();
+  console.log(sizeCost);
   var toppingCost = this.toppingSelector();
-  var finalCost = sizeCost + toppingCost;
-  return finalCost;
+  console.log(toppingCost);
+  return this.finalCost = sizeCost + toppingCost;
 }
 
 //   for (var i = 0; i < toppingLength; i++) {
@@ -57,7 +59,7 @@ Pizza.prototype.finalOrder = function() {
 $(document).ready(function() {
   var newPizza = new Pizza();
   var newToppingList = newPizza.toppings;
-
+  // var newSelections = newPizza.toppingSelector();
   // for (var i = 0; i < newToppingList.length; i++) {
   //   var test = newToppingList[i];
   //   var $test = $("<li>").text(test).hide().delay(100*i).fadeIn(300);
@@ -72,44 +74,50 @@ $(document).ready(function() {
       $(".pizza-cat").show().fadeOut(5000);
     });
 
+
+
+
     $("form#pizza-size").submit(function(event) {
       event.preventDefault();
       var smallChecked = $("input#small").prop('checked');
       var mediumChecked = $("input#medium").prop('checked');
       var largeChecked = $("input#large").prop('checked');
       var galaxyChecked = $("input#galaxy").prop('checked');
-      var CarmelizedChecked = $("input#carmelized").prop('checked');
-      var peppersChecked = $("input#peppers").prop('checked');
-      var pineappleChecked = $("input#pineapple").prop('checked');
-      var jalapenoChecked = $("input#jalapeno").prop('checked');
-      var tempehChecked = $("input#tempeh").prop('checked');
-      var olivesChecked = $("input#olives").prop('checked');
-      var mushroomsChecked = $("input#mushrooms").prop('checked');
-      var onionsChecked = $("input#onions").prop('checked');
 
       if (smallChecked === true) {
         this.size = "small";
         var receipt = newPizza.pizzaSizer();
       } else if (mediumChecked === true) {
         this.size = "medium";
+        var receipt = newPizza.pizzaSizer();
       } else if (largeChecked === true) {
         this.size = "large";
+        var receipt = newPizza.pizzaSizer();
       } else if (galaxyChecked === true) {
         this.size = "galaxy-sized";
+        var receipt = newPizza.pizzaSizer();
       } else {
         console.log("We got problems");
       }
+     //
 
-
-      var checkArray  = [];
-      $('.toppings-list input[type=checkbox]').each(function () {
-          this.checked ? checkArray.push("1") : checkArray.push("0");
+     $('.toppings-list input:checkbox:checked').each(function () {
+        newPizza.toppingChoice = $(this).attr('id');
+        newPizza.toppingSelector();
       });
 
-      $(".hidden-receipt").show();
-      $(".size-output").append(this.size + " ");
-      $(".toppings-output").append(this.toppingChoice + " ");
-      $(".cost-output").append(this.cost + " ");
+      // newPizza.finalOrder();
+
+
+     $(".hidden-receipt").show();
+     $(".size-output").append(this.size + " ");
+     $(".toppings-output").append(" " + newPizza.toppingChoice + " ");
+     $(".cost-output").append(this.cost + " ");
+
     });
+
+
+
+
 
 });

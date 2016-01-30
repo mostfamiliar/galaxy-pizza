@@ -16,7 +16,7 @@ describe('Pizza', function() {
     expect(testPizza.pizzaSizer()).to.equal(16);
   });
   it("will allow a user to a topping for the desired pizza and output cost", function() {
-    var testPizza = new Pizza("large", "Mushroom");
+    var testPizza = new Pizza("large", "Mushroom", 0);
     expect(testPizza.toppingSelector()).to.equal(2);
   });
   // it ("will separate multiple toppings into an array", functio)
