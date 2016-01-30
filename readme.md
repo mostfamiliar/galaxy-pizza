@@ -1,4 +1,4 @@
-# PIZZA GALAXY
+# GALAXY PIZZA
 
 #### A program that generates a pizza order based on user input.
 
@@ -24,7 +24,11 @@ A web application that takes user input of pizza size and ingredients and genera
 * Bootstrap
 * BDD
 
-###Hangman can be viewed at https://github.com/mostfamiliar/pizza-company
+### Known Issues
+* Can't select more than one topping :(
+
+###Galaxy Pizza can be viewed at https://github.com/mostfamiliar/galaxy-pizza
+
 
 ### License
 
