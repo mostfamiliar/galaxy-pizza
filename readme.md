@@ -1,13 +1,14 @@
 # PIZZA GALAXY
 
-#### A program that let's a user play Hangman with pre-determined words that are randomly selected by the computer.  
-#### January 28, 2016
+#### A program that generates a pizza order based on user input.
+
+#### January 29, 2016
 
 #### By Torrence Stratton
 
 ## Description
 
-A web application
+A web application that takes user input of pizza size and ingredients and generates the cost of the order and the items selected.
 
 
 ## Technologies Used
@@ -29,4 +30,4 @@ A web application
 
 *Licensed under GPL.*
 
-&copy;2016 **Torrence Stratton & Molly Curtin**
+&copy;2016 **Torrence Stratto**

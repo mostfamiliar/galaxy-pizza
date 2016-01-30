@@ -27,21 +27,21 @@ Pizza.prototype.pizzaSizer = function() {
 
 Pizza.prototype.toppingSelector = function() {
   var cost = 0;
-  this.toppingChoice = this.toppingChoice.split(" ");
-  var toppingLength = this.toppingChoice.length;
-  this.toppingChoice.forEach(function(blank) {
+  var toppingArr = (this.toppingChoice).split(" ");
+  console.log(toppingArr);
+  toppingArr.forEach(function(blank) {
         cost = cost + 2;
   });
+
   this.toppingCost = cost;
   return this.toppingCost;
 }
 
 Pizza.prototype.finalOrder = function() {
-  var sizeCost = this.pizzaSizer();
-  console.log(sizeCost);
-  var toppingCost = this.toppingSelector();
-  console.log(toppingCost);
-  return this.finalCost = sizeCost + toppingCost;
+  console.log(this.cost);
+  console.log(this.toppingCost);
+  this.finalCost = this.cost + this.toppingCost;
+  console.log(this.finalCost);
 }
 
 //   for (var i = 0; i < toppingLength; i++) {
@@ -85,16 +85,16 @@ $(document).ready(function() {
       var galaxyChecked = $("input#galaxy").prop('checked');
 
       if (smallChecked === true) {
-        this.size = "small";
+        newPizza.size = "small";
         var receipt = newPizza.pizzaSizer();
       } else if (mediumChecked === true) {
-        this.size = "medium";
+        newPizza.size = "medium";
         var receipt = newPizza.pizzaSizer();
       } else if (largeChecked === true) {
-        this.size = "large";
+        newPizza.size = "large";
         var receipt = newPizza.pizzaSizer();
       } else if (galaxyChecked === true) {
-        this.size = "galaxy-sized";
+        newPizza.size = "galaxy-sized";
         var receipt = newPizza.pizzaSizer();
       } else {
         console.log("We got problems");
@@ -102,17 +102,21 @@ $(document).ready(function() {
      //
 
      $('.toppings-list input:checkbox:checked').each(function () {
-        newPizza.toppingChoice = $(this).attr('id');
+        var testVals = $(this).attr('id');
+        testVals.toString();
+        console.log(testVals);
+        newPizza.toppingChoice = testVals;
+        console.log(newPizza.toppingChoice);
         newPizza.toppingSelector();
       });
 
-      // newPizza.finalOrder();
+      var totalCost = newPizza.finalOrder();
 
 
      $(".hidden-receipt").show();
-     $(".size-output").append(this.size + " ");
+     $(".size-output").append(newPizza.size + " ");
      $(".toppings-output").append(" " + newPizza.toppingChoice + " ");
-     $(".cost-output").append(this.cost + " ");
+     $(".cost-output").append(newPizza.finalCost + " ");
 
     });
 
