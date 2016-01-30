@@ -28,8 +28,4 @@ describe('Pizza', function() {
     var testPizza = new Pizza("small", "Tomato Pepper Daiya");
     expect(testPizza.finalOrder()).to.equal(16);
   });
-  it("will calculate the cost of the pizza based on size and toppings", function() {
-    var testPizza = new Pizza("galaxy-sized", "Tempeh, Onion, Olive, Potato");
-    expect(testPizza.finalOrder()).to.equal(28);
-  });
 });

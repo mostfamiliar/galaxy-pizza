@@ -38,10 +38,9 @@ Pizza.prototype.toppingSelector = function() {
 }
 
 Pizza.prototype.finalOrder = function() {
-  console.log(this.cost);
-  console.log(this.toppingCost);
   this.finalCost = this.cost + this.toppingCost;
   console.log(this.finalCost);
+  return this.finalCost;
 }
 
 //   for (var i = 0; i < toppingLength; i++) {

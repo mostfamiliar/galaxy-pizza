@@ -5,21 +5,19 @@ body {
 }
 
 .jumbotron {
-  background-color: #456F74;
   color: #FFF;
   padding: 20px;
-  background-image: url("../img/pizzaSlice.png");
-  background: none;
+  opacity: 0.2;
 }
 
-span .pizza-icon {
-  background-image: url("../img/pizzaSlice.png");
+.pizza-icon {
+  height: 100px;
 }
 
 .jumbotron h1 {
     font-size: 95px;
     font-style: italic;
-    color: #FFF;
+    color: black;
 }
 .rules p {
   font-family: monospace;
